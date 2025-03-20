@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "../components/Header";
 import axios from "axios";
 import BottemBar from '../components/BottemBar'
 
-const AddMenu = (e) => {
-  const [menu, setMenu] = useState("");
-  const addMenu = (e) => {
+const AddMenu = () => {
+  const [menu, setMenu] = useState<{menuName:string,_id:string}>();
+  const addMenu = (e:any) => {
     e.preventDefault();
     const payload = {
       menuName: e.target.menuName.value,
@@ -20,15 +20,15 @@ const AddMenu = (e) => {
         setMenu(res.data);
       });
   };
-    const addItem = (e) => {
+    const addItem = (e:any) => {
         e.preventDefault();
         const payload = {
             name: e.target.name.value,
             description: e.target.description.value,
             price: e.target.price.value
           };
-     axios.post(`https://deepnet-backend-hfba.vercel.app/api/items/${menu._id}`, payload)
-      .then((res) => {
+     axios.post(`https://deepnet-backend-hfba.vercel.app/api/items/${menu?._id}`, payload)
+      .then(() => {
         alert("Item Added Successfully");
         e.target.name.value = "";
         e.target.description.value = "";

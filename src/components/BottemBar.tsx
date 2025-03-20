@@ -1,7 +1,7 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 
-const bottemBar = () => {
+const BottemBar = () => {
   return (
     <div className="fixed bottom-0 w-screen p-5 flex flex-col items-center z-10 sm:hidden">
       <div className=" bg-[#0796EF] flex justify-around w-full p-3 rounded-lg">
@@ -25,4 +25,4 @@ const bottemBar = () => {
   );
 };
 
-export default bottemBar;
+export default BottemBar;
